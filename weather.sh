@@ -6,10 +6,12 @@ temp=`echo $haystack | sed 's/\\\\\//\//g' | sed 's/[{}]//g' | awk -v k="text" '
         echo ${temp##*|}
 }
 
-dev_key='xxxxxxxxxxxxxx'
+dev_key='xxxxxxxxxxxx'
 zip_code='48446'
 city='Lapeer'
 state='MI'
+red=$(tput setaf 1)
+textreset=$(tput sgr0)
 
 haystack=$(curl -Ls -X GET http://api.wunderground.com/api/$dev_key/conditions/q/$state/$city.json)
 needle='temperature_string'
@@ -19,4 +21,4 @@ temperature=$(jsonval $needle $haystack)
 needle='weather'
 current_condition=$(jsonval $needle $haystack)
 
-echo $current_condition 'and' $temperature
+echo -e '\n' $red $current_condition 'and' $temperature $textreset '\n'
