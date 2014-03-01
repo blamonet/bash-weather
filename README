@@ -1,0 +1,8 @@
+weather.sh Bash Shell Interface for Weather Underground
+
+You'll need to register for a free API key from Weather Underground: http://www.wunderground.com/weather/api/
+
+Plug-in your key and put in your city and state to query weather data.
+
+Here is a list of values that can be pulled from current conditions:
+http://www.wunderground.com/weather/api/d/docs?d=data/conditions
